@@ -9,7 +9,7 @@ const Footer = () => {
             <img src={footerLogo} alt="Little Lemon Logo" />
             <p style={{fontWeight: "700", marginTop: "0.5rem"}}>HOURS</p>
             <p>Monday &ndash; Sunday</p>
-            <div>9:00 AM &ndash; 10:00 PM</div>
+            <div>10:30 AM &ndash; 11:00 PM</div>
             </figure>
             <div className="doormat-nav">
                 <p style={{fontWeight: "700"}}>RESTAURANT</p>
