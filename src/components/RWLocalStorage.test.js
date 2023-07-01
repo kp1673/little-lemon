@@ -2,6 +2,8 @@ import { render, fireEvent, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import BookingPage from "./BookingPage";
 
+const noop = () => {};
+Object.defineProperty(window, 'scrollTo', { value: noop, writable: true });
 
 describe("Booking Page", () => {
 
@@ -21,7 +23,6 @@ describe("Booking Page", () => {
                 <BookingPage/>
             </BrowserRouter>
         );
-        // test read from localStorage
         expect(window.localStorage.getItem).toHaveBeenCalledTimes(1);
         expect(window.localStorage.getItem).toHaveBeenCalledWith("booking");
     });
@@ -34,7 +35,7 @@ describe("Booking Page", () => {
 
         const dateInput = screen.getByTestId("date-input");
         fireEvent.change(dateInput, { target: { value: '2024-12-31' } });
-        // test write to localStorage
+
         expect(window.localStorage.setItem).toHaveBeenCalledTimes(2);
         expect(window.localStorage.setItem).toHaveBeenLastCalledWith("booking", "\"2024-12-31\"");
 

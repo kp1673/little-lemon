@@ -9,7 +9,7 @@ const Specials = () => {
         <section className="specials">
             <div className="specials-head">
                 <h1 style={{fontSize: "2.5rem", fontWeight: "400"}}>This week's specials!</h1>
-                <button onClick={() => navigate('/menu')}>Online Menu</button>
+                <button aria-label="On Click" onClick={() => navigate('/menu')}>Online Menu</button>
             </div>
             <div className="specials-body">
                 <article>

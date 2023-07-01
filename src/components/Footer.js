@@ -44,7 +44,7 @@ const Footer = () => {
         </div>
         <div className="copyright">
             <span>
-                © 2023 Little Lemon. All Rights Reserved.
+                © 2023 Little Lemon. <span style={{display: "inline-block"}}>All Rights Reserved.</span>
             </span>
         </div>
     </footer>

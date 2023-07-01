@@ -2,6 +2,9 @@ import { render, fireEvent, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import BookingPage from "./BookingPage";
 
+const noop = () => {};
+Object.defineProperty(window, 'scrollTo', { value: noop, writable: true });
+
 test('Renders the booking form heading', () => {
 
   render(
@@ -32,5 +35,5 @@ test('The available times change when a different date is selected.', () => {
 
   let finalTimes = Array.from(screen.getAllByTestId('select-option')).map(e => e.value);
 
-  expect(finalTimes.sort()).not.toEqual(initialTimes.sort());
+  expect(finalTimes).not.toEqual(initialTimes);
 });

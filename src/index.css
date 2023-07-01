@@ -201,7 +201,7 @@ header .nav-btn {
 .specials {
   width: 100%;
   max-width: 900px;
-  padding: 4.5rem 1.25rem 2.25rem;
+  padding: 2.25rem 1.25rem;
   margin: 0 auto;
 }
 
@@ -224,6 +224,7 @@ header .nav-btn {
 .specials .specials-head {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   column-gap: 1.25rem;
   align-items: baseline;
   margin-bottom: 1.25rem;
@@ -288,6 +289,9 @@ header .nav-btn {
 }
 
 @media only screen and (min-width: 576px) {
+  .specials{
+    padding-top: 4.5rem;
+  }
   .specials article {
     width: calc(50vw - 1.875rem);
   }
@@ -302,19 +306,19 @@ header .nav-btn {
 
 
 .booking {
- box-shadow: 0px -5px 5px -5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px -5px 5px -5px rgba(0, 0, 0, 0.5);
 }
 
 .alert-container {
     max-width: 80%;
     padding: 1.25rem;
-    background-color: var(--secondaryColorLight);
+    background-color: #fff;
     border-radius: 7px;
     display: grid;
     grid-template-columns: 1.3fr 6fr 0.5fr;
     gap: 1rem;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    border-left: 8px solid var(--secondaryColor);
+    border-left: 8px solid #f00;
     position: fixed;
     top: 1.25rem;
     right: 1.25rem;
@@ -329,7 +333,7 @@ header .nav-btn {
 }
 
 .alert-container i{
-  color: var(--secondaryColor);
+  color: #f00;
 }
 
 .alert-outer-container, .alert-inner-container{
@@ -340,15 +344,15 @@ header .nav-btn {
   font-size: 2.25rem;
 }
 
-.alert-inner-container p:first-child{
-  color: var(--highlightColor); /* #101020;*/
-  font-weight: 500; /* 600;*/
-  font-size: 1rem;
-}
-.alert-inner-container p:last-child{
+.alert-inner-container p {
   font-size: 0.75rem;
   font-weight: 400;
-  color: var(--highlightColor); /* #656565;*/
+  color: var(--highlightColor);
+}
+.alert-inner-container p:first-child{
+  color: var(--highlightColor);
+  font-weight: 500;
+  font-size: 1rem;
 }
 
 .alert-container .alert-inner-button {
@@ -432,6 +436,12 @@ button[type="submit"]:hover {
   color: #fff;
 }
 
+button[type="submit"]:disabled,
+button[type="submit"][disabled]{
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
 .button__text {
   transition: all 0.2s;
 }
@@ -467,6 +477,58 @@ button[type="submit"]:hover {
   }
 }
 
+.confirmed-booking {
+  padding: 2.25rem 1.25rem;
+  box-shadow: 0px -5px 5px -5px rgba(0, 0, 0, 0.5);
+}
+
+.confirmed-booking table {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0;
+  border: 1px solid var(--highlightColorLight);
+}
+
+.confirmed-booking table tr {
+  background-color: var(--secondaryColorLight);
+}
+
+.confirmed-booking td {
+  padding: 0.5rem 1rem;
+}
+
+.confirmed-booking tr:last-child td:last-child {
+  padding-bottom: 1rem;
+}
+
+.confirmed-booking table tr:first-child {
+  border-radius: 1rem 1rem 0 0;
+}
+
+.confirmed-booking table tr:first-child td:first-child {
+  border-radius: 1rem 1rem 0 0;
+}
+
+
+@media screen and (max-width: 600px) {
+
+  .confirmed-booking table tr {
+    border-bottom: 3px solid var(--highlightColorLight);
+    display: block;
+  }
+
+  .confirmed-booking table td {
+    border-bottom: 1px solid var(--highlightColorLight);
+    display: block;
+    text-align: left;
+  }
+
+  .confirmed-booking table td:last-child {
+    border-bottom: 0;
+  }
+}
+
 
 .customers-say {
   background-color: var(--highlightColorLight);
@@ -496,6 +558,7 @@ button[type="submit"]:hover {
 
 .customers-say .customer img {
   display: block;
+  margin: auto;
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -503,9 +566,10 @@ button[type="submit"]:hover {
 
 .customers-say .customer .fa-custom {
   display: flex;
+  justify-content: center;
   margin-bottom: 0.5rem;
   color: #ffb300;
-  font-size: 0.875rem;
+  font-size: 0.75rem;
 }
 
 .customers-say .customer .photo {
@@ -522,30 +586,17 @@ button[type="submit"]:hover {
   color: #495e57;
 }
 
+
 @media only screen and (min-width: 576px){
   .customers-say .container {
 	  grid-template-columns: 1fr 1fr;
   }
 }
 
-@media only screen and (min-width: 768px){
-
-  .customers-say .container {
-    display: flex;
-  }
-  .customers-say .customer {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-}
-
 
 .chicago .container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(258px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   align-items: stretch;
   row-gap: 1.25rem;
   column-gap: 2.5rem;
@@ -560,7 +611,7 @@ button[type="submit"]:hover {
 }
 
 
-.page-not-found a {
+.page-not-found a, .confirmed-booking a {
   display: inline-block;
   background-color: var(--mainColorLight);
   color: var(--highlightColor);
@@ -575,7 +626,7 @@ button[type="submit"]:hover {
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
-.page-not-found a:hover {
+.page-not-found a:hover, .confirmed-booking a:hover {
   background-color: var(--secondaryColor);
   color: #fff;
 }
@@ -594,9 +645,9 @@ footer .footer-bar, footer .copyright {
 
 footer .footer-bar {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 1.25rem;
-  padding: 1.25rem;
+  padding: 2.5rem 1.25rem 1.25rem;
 }
 
 footer .copyright {

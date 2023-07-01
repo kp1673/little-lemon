@@ -20,15 +20,15 @@ const Alert = ({timeout}, ref) => {
     }
 
     return (
-    <div className={`alert-container ${show ? "show" : ""}`}>
+    <div role="alert" data-testid="alert-box" className={`alert-container ${show ? "show" : ""}`}>
         <div className="alert-outer-container">
-            <i className="fas fa-check-circle"></i>
+            <i className="fas fa-times-circle"></i>
         </div>
         <div className="alert-inner-container">
-            <p>Your Booking Has Been Confirmed!</p>
+            <p>Form submission failed!</p>
             <p>{alertMsg}</p>
         </div>
-        <button className="alert-inner-button" onClick={closeAlert}>&times;</button>
+        <button className="alert-inner-button" aria-label="Close" onClick={closeAlert}>&times;</button>
     </div>
   );
 }
